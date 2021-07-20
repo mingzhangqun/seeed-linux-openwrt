@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Build
 
 # Controls when the workflow will run
 on:
@@ -22,10 +22,6 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout
-        uses: actions/checkout@v2
-      
       - name: Setup Environment
         run: |
           sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev \
@@ -33,6 +29,10 @@ jobs:
             git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils \
             upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf \
             wget curl swig rsync
+
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout
+        uses: actions/checkout@v2
       
       - name: Update & Install feeds
         run: |
