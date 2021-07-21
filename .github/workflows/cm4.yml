@@ -44,7 +44,7 @@ jobs:
           cp defconfig/cm4_defconfig .config
           make defconfig
           make -j8 download
-          make -j8 V=s
+          make -j8
           
       - uses: actions/upload-artifact@v2
         with:
